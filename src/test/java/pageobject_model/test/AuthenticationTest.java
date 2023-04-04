@@ -22,7 +22,7 @@ public class AuthenticationTest extends BaseTest{
         homePage = new HomePage(driver).openPage().closeBanner();
     }
 
-    @Test
+    @Test(description = "User successfully logged in with correct login and password")
     public void oneCanLoginGoogleAccount(){
         String loggedInUserName = "";
         Boolean loggedIn = new HomePage(driver)
@@ -34,7 +34,7 @@ public class AuthenticationTest extends BaseTest{
         if (loggedIn) loggedInUserName = homePage.getLoggedInUserName();
         assertThat(loggedInUserName, is (equalTo(CORRECT_LOGIN)));
     }
-    @Test
+    @Test(description = "An invented email was typed as a login, it is impossible to continue logging in")
     public void oneCanNotLoginWithIncorrectLogin(){
         Boolean loginIsIncorrect= new HomePage(driver)
                 .openPage()
@@ -43,7 +43,7 @@ public class AuthenticationTest extends BaseTest{
                 .inputPasswordIsUnavailable();
         assertThat(true, is(loginIsIncorrect));
     }
-    @Test
+    @Test(description = "Incorrect password was typed, authentication failed")
     public void oneCanNotLoginWithIncorrectPassword(){
         Boolean loggedIn= new HomePage(driver)
                 .openPage()

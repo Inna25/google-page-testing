@@ -6,8 +6,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.concurrent.TimeUnit;
-
 public class FirefoxDriverManager extends DriverManager{
     private FirefoxDriverService ffService;
     @Override

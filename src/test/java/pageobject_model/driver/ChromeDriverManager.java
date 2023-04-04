@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class ChromeDriverManager extends DriverManager{
     private ChromeDriverService chService;

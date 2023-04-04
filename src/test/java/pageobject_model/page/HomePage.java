@@ -3,6 +3,7 @@ package pageobject_model.page;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import pageobject_model.driver.WebDriverUtils;
 
 public class HomePage extends BasePage{
     private static final String HOMEPAGE_URL = "https://www.google.com/";
@@ -38,11 +39,11 @@ public class HomePage extends BasePage{
         searchInput.sendKeys(term);
         Actions builder = new Actions(driver);
         builder.sendKeys(Keys.RETURN).build().perform();
-       // WebDriverUtils.waitForElementClickableBy(driver, By.id(BANNER_CLOSE_BUTTON_ID));
         return new SearchByTermsResultsPage(driver);
     }
     public HomePage closeBanner() {
-            bannerCloseButton.click();
+         WebDriverUtils.waitForElementClickableBy(driver, By.id(BANNER_CLOSE_BUTTON_ID));
+         bannerCloseButton.click();
         return this;
     }
     public AccountsPage goToAccountsPage() {
